@@ -20,6 +20,8 @@ export class FlightSearchComponent {
     5: true
   };
 
+  flights$ = this.flightService.flights$;
+
   constructor(private flightService: FlightService) {}
 
   get flights() {
