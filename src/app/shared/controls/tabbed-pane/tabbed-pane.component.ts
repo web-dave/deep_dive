@@ -23,8 +23,6 @@ export class TabbedPaneComponent {
     }
   }
 
-  ngOnInit(): void {}
-
   register(tab: TabComponent): void {
     this.tabs.push(tab);
   }
@@ -34,5 +32,11 @@ export class TabbedPaneComponent {
       tab.visible = tab === active;
     }
     this.activeTab = active;
+
+    this.currentPage = this.tabs.indexOf(active) + 1;
+  }
+
+  pageChange(page: number): void {
+    this.activate(this.tabs[page - 1]);
   }
 }
