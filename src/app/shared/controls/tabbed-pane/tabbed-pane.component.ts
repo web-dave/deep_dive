@@ -1,6 +1,7 @@
-import { Component, ContentChildren, QueryList, ViewChild } from '@angular/core';
+import { Component, ContentChildren, inject, QueryList, ViewChild } from '@angular/core';
 import { TabNavigatorComponent } from '../tab-navigator/tab-navigator.component';
 import { TabComponent } from '../tab/tab.component';
+import { TabbedPaneService } from './tabbed-pane.service';
 
 @Component({
   selector: 'app-tabbed-pane',
@@ -17,17 +18,19 @@ export class TabbedPaneComponent {
   activeTab: TabComponent | undefined;
   currentPage = 0;
 
+  private service = inject(TabbedPaneService);
+
   get tabs(): TabComponent[] {
     return this.tabQueryList?.toArray() ?? [];
   }
-
   ngAfterViewInit(): void {
-    if (this.navigator) {
-      this.navigator.pageCount = this.tabs.length;
-      this.navigator.pageChange.subscribe((page: number) => {
-        this.pageChange(page);
-      });
-    }
+    this.service.pageCount.next(this.tabs.length);
+    this.service.currentPage.subscribe((page: number) => {
+      if (page === this.currentPage) {
+        return;
+      }
+      this.pageChange(page);
+    });
   }
 
   ngAfterContentInit(): void {
@@ -47,6 +50,7 @@ export class TabbedPaneComponent {
     this.activeTab = active;
 
     this.currentPage = this.tabs.indexOf(active) + 1;
+    this.service.currentPage.next(this.currentPage);
   }
 
   pageChange(page: number): void {
