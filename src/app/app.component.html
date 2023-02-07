@@ -3,7 +3,9 @@
 <div class="wrapper">
 
   <div class="sidebar" data-active-color="danger" data-color="white">
-    <app-sidebar-cmp></app-sidebar-cmp>
+    <app-sidebar-cmp>
+      <h1>{{hi}}</h1>
+    </app-sidebar-cmp>
   </div>
 
   <div class="main-panel">
@@ -20,6 +22,7 @@
   </div>
 
 </div>
+<ng-content></ng-content>
 
 <!--
 <div class="loading-indicator">
