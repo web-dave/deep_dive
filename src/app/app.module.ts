@@ -14,9 +14,10 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 import { SharedModule } from './shared/shared.module';
 import { BasketComponent } from './basket/basket.component';
+import { CustomerModule } from './customer/customer.module';
 
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES), HttpClientModule, BrowserModule, FlightBookingModule, SharedModule],
+  imports: [CustomerModule, RouterModule.forRoot(APP_ROUTES), HttpClientModule, BrowserModule, FlightBookingModule, SharedModule],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, AboutComponent, NotFoundComponent, BasketComponent],
   providers: [],
   bootstrap: [AppComponent]
