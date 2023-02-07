@@ -9,12 +9,19 @@ import { TabComponent } from '../tab/tab.component';
 export class TabbedPaneComponent implements AfterContentInit {
   @ContentChildren(TabComponent)
   tabQueryList: QueryList<TabComponent> | undefined;
-
+  i = 1;
   activeTab: TabComponent | undefined;
-  currentPage = 0;
 
   get tabs(): TabComponent[] {
     return this.tabQueryList?.toArray() ?? [];
+  }
+
+  get currentPage() {
+    return this.i;
+  }
+
+  set currentPage(n: number) {
+    this.activate(this.tabs[n - 1]);
   }
 
   ngAfterContentInit() {
@@ -27,7 +34,7 @@ export class TabbedPaneComponent implements AfterContentInit {
       tab.visible = tab === active;
     });
   }
-  pageChange(page: number): void {
-    this.activate(this.tabs[page - 1]);
-  }
+  // pageChange(page: number): void {
+  //   this.activate(this.tabs[page - 1]);
+  // }
 }

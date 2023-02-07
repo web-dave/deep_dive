@@ -4,8 +4,8 @@
             <a [ngClass]="{active: tab === activeTab}" (click)="activate(tab)">{{tab.title}}</a>
         </span>
     </div>
-
+    <pre>{{currentPage}}</pre>
     <ng-content></ng-content>
-    <app-tab-navigator [page]="this.currentPage" [pageCount]="this.tabs.length" (pageChange)="pageChange($event)">
+    <app-tab-navigator [(page)]="currentPage" [pageCount]="tabs.length">
     </app-tab-navigator>
 </div>
