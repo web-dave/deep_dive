@@ -2,7 +2,7 @@
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Flight } from './flight';
 
 @Injectable({
@@ -10,6 +10,7 @@ import { Flight } from './flight';
 })
 export class FlightService {
   // We will refactor this to an observable in a later exercise!
+  // flights$$ = new BehaviorSubject()
   flights: Flight[] = [];
 
   constructor(private http: HttpClient) {}

@@ -1,6 +1,7 @@
 // src/app/flight-search/flight-search.component.ts
 
 import { Component } from '@angular/core';
+import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 import { Flight } from '../flight';
 import { FlightService } from '../flight.service';
 
@@ -10,8 +11,10 @@ import { FlightService } from '../flight.service';
   styleUrls: ['./flight-search.component.scss']
 })
 export class FlightSearchComponent {
+  boom$$ = new ReplaySubject(3);
   from = 'Hamburg';
   to = 'Graz';
+  i = 0;
   selectedFlight: Flight | null = null;
   delayFilter = false;
 
@@ -20,7 +23,11 @@ export class FlightSearchComponent {
     5: true
   };
 
-  constructor(private flightService: FlightService) {}
+  constructor(private flightService: FlightService) {
+    setTimeout(() => {
+      this.boom$$.subscribe((data) => console.log(data));
+    }, 3000);
+  }
 
   get flights() {
     // We will refactor this to an observable in a later exercise!
@@ -36,6 +43,8 @@ export class FlightSearchComponent {
   }
 
   delay(): void {
+    this.i++;
+    this.boom$$.next('Hallo Provinzial!' + this.i);
     this.flightService.delay();
   }
 }
