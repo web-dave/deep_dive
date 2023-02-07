@@ -27,4 +27,7 @@ export class TabbedPaneComponent implements AfterContentInit {
       tab.visible = tab === active;
     });
   }
+  pageChange(page: number): void {
+    this.activate(this.tabs[page - 1]);
+  }
 }

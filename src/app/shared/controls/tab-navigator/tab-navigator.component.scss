@@ -1,0 +1,15 @@
+:host {
+  border: 2px solid black;
+  width: 150px;
+  display: block;
+  padding: 15px;;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+.next {
+  float: right;
+}
