@@ -7,6 +7,10 @@ import { TabComponent } from '../tab/tab.component';
   styleUrls: ['./tabbed-pane.component.scss']
 })
 export class TabbedPaneComponent implements AfterContentInit {
+  data = {
+    foo: 'Bar',
+    ping: 'Pong'
+  };
   @ContentChildren(TabComponent)
   tabQueryList: QueryList<TabComponent> | undefined;
   i = 1;

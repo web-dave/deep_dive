@@ -4,9 +4,9 @@
             <a [ngClass]="{active: tab === activeTab}" (click)="activate(tab)">{{tab.title}}</a>
         </span>
     </div>
-    <pre>{{currentPage}}</pre>
+    <pre> ==>{{data | json}}</pre>
     <ng-content></ng-content>
-    <app-tab-navigator [(page)]="currentPage" [pageCount]="tabs.length">
+    <app-tab-navigator [(page)]="currentPage" [pageCount]="tabs.length" [pagedata]="data">
     </app-tab-navigator>
 </div>
 

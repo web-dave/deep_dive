@@ -1,12 +1,24 @@
 // src/app/flight-card/flight-card.component.ts
 
-import { Component, ElementRef, EventEmitter, Input, NgZone, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  NgZone,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import { Flight } from '../flight';
 
 @Component({
   selector: 'flight-card',
   templateUrl: './flight-card.component.html',
-  styleUrls: ['./flight-card.component.scss']
+  styleUrls: ['./flight-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FlightCardComponent implements OnInit, OnChanges {
   @Input() item: Flight | null = null;
@@ -22,7 +34,7 @@ export class FlightCardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.debug('ngOnChanges', this.item);
+    console.log('ngOnChanges', this.item);
 
     if (changes.item) {
       console.debug('ngOnChanges: item');

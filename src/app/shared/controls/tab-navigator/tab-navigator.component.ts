@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class TabNavigatorComponent {
   @Input() page = 0;
   @Input() pageCount = 0;
+  @Input() pagedata: { [key: string]: string } = {};
   @Output() pageChange = new EventEmitter<number>();
 
   prev() {
@@ -16,6 +17,8 @@ export class TabNavigatorComponent {
     }
     this.page--;
     this.pageChange.emit(this.page);
+    this.pageCount = 7;
+    this.pagedata = { tuff: 'Puff' };
   }
   next() {
     if (this.page >= this.pageCount) {
