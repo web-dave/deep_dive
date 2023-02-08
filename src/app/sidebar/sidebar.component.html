@@ -15,30 +15,36 @@
   <ul class="nav">
 
     <li routerLinkActive="active">
-      <a routerLink="home">
+      <a [routerLink]="[{outlets: { primary:'home', ratata: null}}]">
         <p>Home</p>
+      </a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="[{outlets: { ratata: 'basket'}}]">
+        <p>Basket</p>
       </a>
     </li>
 
     <li routerLinkActive="active">
-      <a routerLink="flight-booking/flight-search">
+      <a [routerLink]="[{outlets: { primary:'flight-booking/flight-search', ratata: null}}]">
+
         <p>Flight Booking</p>
       </a>
     </li>
 
     <li routerLinkActive="active">
-      <a routerLink="passenger-search">
+      <a [routerLink]="[{outlets: { primary:'passenger-search', ratata: null}}]">
         <p>Passengers</p>
       </a>
     </li>
     <li routerLinkActive="active">
-      <a routerLink="customer/history">
+      <a [routerLink]="[{outlets: { primary:'customer/history', ratata: null}}]">
         <p>Booking History</p>
       </a>
     </li>
 
     <li routerLinkActive="active">
-      <a routerLink="about">
+      <a [routerLink]="[{outlets: { primary:'about', ratata: null}}]">
         <p>About</p>
       </a>
     </li>
