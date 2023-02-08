@@ -15,6 +15,7 @@ export class FlightEditComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    console.log(this.route);
     this.route.params.subscribe((p) => {
       this.id = p.id;
       this.showDetails = p.showDetails;
