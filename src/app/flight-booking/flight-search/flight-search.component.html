@@ -43,7 +43,7 @@
   </div>
 
   <div class="form-group">
-    <button (click)="search()" class="btn btn-default">
+    <button class="btn btn-default" (appClickWithWarning)="search()">
       Search
     </button>
 
@@ -55,7 +55,7 @@
 
 
 <div class="row">
-  <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+  <div *ngFor="let f of flights$ |async" class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
     <flight-card [(selected)]="basket[f.id]" [item]="f">
     </flight-card>
   </div>

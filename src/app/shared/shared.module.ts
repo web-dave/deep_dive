@@ -13,6 +13,7 @@ import { CityValidationDirective } from './validation/city-validation.directive'
 import { TabComponent } from './controls/tab/tab.component';
 import { TabbedPaneComponent } from './controls/tabbed-pane/tabbed-pane.component';
 import { TabNavigatorComponent } from './controls/tab-navigator/tab-navigator.component';
+import { ClickWithWarningDirective } from './controls/click-with-warning.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -26,7 +27,8 @@ import { TabNavigatorComponent } from './controls/tab-navigator/tab-navigator.co
     CityValidationDirective,
     TabComponent,
     TabbedPaneComponent,
-    TabNavigatorComponent
+    TabNavigatorComponent,
+    ClickWithWarningDirective
   ],
   exports: [
     DateComponent,
@@ -40,7 +42,8 @@ import { TabNavigatorComponent } from './controls/tab-navigator/tab-navigator.co
     CityValidationDirective,
     TabComponent,
     TabbedPaneComponent,
-    TabNavigatorComponent
+    TabNavigatorComponent,
+    ClickWithWarningDirective
   ]
 })
 export class SharedModule {}
