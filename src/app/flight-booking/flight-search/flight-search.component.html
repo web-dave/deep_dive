@@ -44,10 +44,18 @@
 
   <div class="form-group">
     <button class="btn btn-default" (appClickWithWarning)="search()">
+      <!-- *ngTemplateOutlet="tt"> -->
       Search
     </button>
 
-    <button (click)="delay()" *ngIf="flights.length > 0" class="btn btn-default">
+    <ng-template #tt>
+      Hi Ho
+      <!-- <h4>{{foo}}</h4>
+      <h5>{{bar}}</h5>
+      <h6>{{baz}}</h6> -->
+    </ng-template>
+    <app-manfried></app-manfried>
+    <button (click)="delay()" class="btn btn-default">
       Delay
     </button>
   </div>

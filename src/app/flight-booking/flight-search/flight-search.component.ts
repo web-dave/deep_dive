@@ -1,8 +1,9 @@
 // src/app/flight-search/flight-search.component.ts
 
-import { Component, OnDestroy } from '@angular/core';
+import { AfterViewChecked, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { BehaviorSubject, NEVER, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { switchMap, mergeMap, concatMap, exhaustMap, takeUntil } from 'rxjs/operators';
+import { ManfriedComponent } from 'src/app/shared/controls/manfried/manfried.component';
 import { Flight } from '../flight';
 import { FlightService } from '../flight.service';
 
@@ -11,8 +12,10 @@ import { FlightService } from '../flight.service';
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.scss']
 })
-export class FlightSearchComponent implements OnDestroy {
+export class FlightSearchComponent implements OnDestroy, AfterViewChecked {
   terminator$$ = new Subject();
+  @ViewChild(ManfriedComponent, { read: ElementRef }) manfred: any;
+  manfriedComponent = ManfriedComponent;
 
   sub!: Subscription;
   subs: Subscription = new Subscription();
@@ -43,6 +46,9 @@ export class FlightSearchComponent implements OnDestroy {
   get flights() {
     // We will refactor this to an observable in a later exercise!
     return this.flightService.flights;
+  }
+  ngAfterViewChecked(): void {
+    console.log(this.manfred);
   }
 
   ngOnDestroy(): void {
