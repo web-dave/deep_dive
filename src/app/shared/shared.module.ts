@@ -18,6 +18,9 @@ import { TooltipDirective } from './controls/tooltip.directive';
 import { ManfriedDirective } from './controls/manfried.directive';
 import { ManfriedComponent } from './controls/manfried/manfried.component';
 
+import { DataTableComponent } from './controls/data-table/data-table.component';
+import { TableFieldDirective } from './controls/table-field.directive';
+
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: [
@@ -34,7 +37,9 @@ import { ManfriedComponent } from './controls/manfried/manfried.component';
     ClickWithWarningDirective,
     TooltipDirective,
     ManfriedDirective,
-    ManfriedComponent
+    ManfriedComponent,
+    DataTableComponent,
+    TableFieldDirective
   ],
   exports: [
     DateComponent,
@@ -52,7 +57,9 @@ import { ManfriedComponent } from './controls/manfried/manfried.component';
     ClickWithWarningDirective,
     TooltipDirective,
     ManfriedDirective,
-    ManfriedComponent
+    ManfriedComponent,
+    DataTableComponent,
+    TableFieldDirective
   ]
 })
 export class SharedModule {}
