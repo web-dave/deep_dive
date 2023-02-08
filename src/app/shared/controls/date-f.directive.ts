@@ -3,14 +3,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-date-f',
-  template: `<input [value]="value" />`,
+  template: `<input [(ngModel)]="value" />`,
   providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => DateFComponent), multi: true }]
 })
 export class DateFComponent implements ControlValueAccessor {
-  val: any;
-
-  onChange: any = () => {};
-  onTouched: any = () => {};
+  val: any = '';
 
   constructor() {}
 
@@ -22,6 +19,9 @@ export class DateFComponent implements ControlValueAccessor {
       this.onTouched(val);
     }
   }
+
+  onChange: any = () => {};
+  onTouched: any = () => {};
   writeValue(value: any): void {
     this.value = value;
   }

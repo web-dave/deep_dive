@@ -39,6 +39,7 @@
     <label>Date:</label>
     <app-date-f ngModel name="date"></app-date-f>
   </div>
+  <pre>{{f.value | json}}</pre>
 
   <div class="form-group">
     <input [(ngModel)]="delayFilter" id="delayFilter" type="checkbox" name="delayFilter">
