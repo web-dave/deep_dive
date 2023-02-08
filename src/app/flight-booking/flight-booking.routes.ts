@@ -6,23 +6,30 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
 
 // Diesen Import hinzufügen
 import { FlightEditComponent } from './flight-edit/flight-edit.component';
+import { FlightBookingComponent } from './flight-booking.component';
 
 export const FLIGHT_BOOKING_ROUTES: Routes = [
   {
-    path: '',
-    redirectTo: 'flight-search',
-    pathMatch: 'full'
-  },
-  {
-    path: 'flight-search',
-    component: FlightSearchComponent
-  },
-  {
-    path: 'passenger-search',
-    component: PassengerSearchComponent
-  },
-  {
-    path: 'flight-edit/:id',
-    component: FlightEditComponent
+    path: 'flight-booking',
+    component: FlightBookingComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'flight-search',
+        pathMatch: 'full'
+      },
+      {
+        path: 'flight-search',
+        component: FlightSearchComponent
+      },
+      {
+        path: 'passenger-search',
+        component: PassengerSearchComponent
+      },
+      {
+        path: 'flight-edit/:id',
+        component: FlightEditComponent
+      }
+    ]
   }
 ];

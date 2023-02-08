@@ -17,7 +17,14 @@ import { BasketComponent } from './basket/basket.component';
 import { CustomerModule } from './customer/customer.module';
 
 @NgModule({
-  imports: [CustomerModule, RouterModule.forRoot(APP_ROUTES), HttpClientModule, BrowserModule, FlightBookingModule, SharedModule],
+  imports: [
+    CustomerModule,
+    FlightBookingModule,
+    RouterModule.forRoot(APP_ROUTES, { enableTracing: true }),
+    HttpClientModule,
+    BrowserModule,
+    SharedModule
+  ],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, AboutComponent, NotFoundComponent, BasketComponent],
   providers: [],
   bootstrap: [AppComponent]
