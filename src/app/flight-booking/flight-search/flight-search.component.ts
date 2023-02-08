@@ -48,7 +48,7 @@ export class FlightSearchComponent implements OnDestroy, AfterViewChecked {
     return this.flightService.flights;
   }
   ngAfterViewChecked(): void {
-    console.log(this.manfred);
+    // console.log(this.manfred);
   }
 
   ngOnDestroy(): void {

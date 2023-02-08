@@ -20,6 +20,7 @@ import { ManfriedComponent } from './controls/manfried/manfried.component';
 
 import { DataTableComponent } from './controls/data-table/data-table.component';
 import { TableFieldDirective } from './controls/table-field.directive';
+import { DateFComponent } from './controls/date-f.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -39,7 +40,8 @@ import { TableFieldDirective } from './controls/table-field.directive';
     ManfriedDirective,
     ManfriedComponent,
     DataTableComponent,
-    TableFieldDirective
+    TableFieldDirective,
+    DateFComponent
   ],
   exports: [
     DateComponent,
@@ -59,7 +61,8 @@ import { TableFieldDirective } from './controls/table-field.directive';
     ManfriedDirective,
     ManfriedComponent,
     DataTableComponent,
-    TableFieldDirective
+    TableFieldDirective,
+    DateFComponent
   ]
 })
 export class SharedModule {}

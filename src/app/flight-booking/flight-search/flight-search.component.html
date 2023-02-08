@@ -35,6 +35,10 @@
     <label>To:</label>
     <input [(ngModel)]="to" class="form-control" name="to">
   </div>
+  <div class="form-group">
+    <label>Date:</label>
+    <app-date-f ngModel name="date"></app-date-f>
+  </div>
 
   <div class="form-group">
     <input [(ngModel)]="delayFilter" id="delayFilter" type="checkbox" name="delayFilter">
