@@ -18,7 +18,7 @@ import { CustomerModule } from './customer/customer.module';
 @NgModule({
   imports: [
     CustomerModule,
-    RouterModule.forRoot(APP_ROUTES, { enableTracing: true, preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(APP_ROUTES, { enableTracing: false, preloadingStrategy: PreloadAllModules }),
     HttpClientModule,
     BrowserModule,
     SharedModule

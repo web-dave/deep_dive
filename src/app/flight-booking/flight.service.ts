@@ -3,6 +3,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, OnChanges, SimpleChanges } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Flight } from './flight';
 
 @Injectable({
@@ -45,5 +46,13 @@ export class FlightService {
     this.flights[0] = flight;
 
     this.flights[1].id = Number(`${this.flights[1].id}e`);
+  }
+
+  getCities(): Observable<string[]> {
+    const url = 'http://www.angular.at/api/flight';
+
+    const headers = new HttpHeaders().set('Accept', 'application/json');
+
+    return this.http.get<Flight[]>(url, { headers }).pipe(map((data) => data.map((f) => f.from)));
   }
 }
