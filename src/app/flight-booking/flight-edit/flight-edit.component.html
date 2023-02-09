@@ -6,3 +6,11 @@
 <p>
   ShowDetail: {{id}}
 </p>
+
+<form [formGroup]="editForm">
+  <div *ngFor="let field of formFields" class="form-group">
+    <label>{{field | uppercase}}:</label>
+    <input class="form-control" [formControlName]="field" [type]="formConfig[field].type">
+  </div>
+</form>
+<pre>{{editForm.value | json}}</pre>
