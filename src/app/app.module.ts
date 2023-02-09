@@ -6,7 +6,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FlightBookingModule } from './flight-booking/flight-booking.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -17,14 +16,7 @@ import { BasketComponent } from './basket/basket.component';
 import { CustomerModule } from './customer/customer.module';
 
 @NgModule({
-  imports: [
-    CustomerModule,
-    FlightBookingModule,
-    RouterModule.forRoot(APP_ROUTES, { enableTracing: true }),
-    HttpClientModule,
-    BrowserModule,
-    SharedModule
-  ],
+  imports: [CustomerModule, RouterModule.forRoot(APP_ROUTES, { enableTracing: true }), HttpClientModule, BrowserModule, SharedModule],
   declarations: [AppComponent, SidebarComponent, NavbarComponent, HomeComponent, AboutComponent, NotFoundComponent, BasketComponent],
   providers: [],
   bootstrap: [AppComponent]

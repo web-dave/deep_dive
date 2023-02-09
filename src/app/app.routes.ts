@@ -16,6 +16,7 @@ export const APP_ROUTES: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canDeactivate: [AuthGuard],
     canActivate: [AuthGuard]
   },
   {
@@ -26,6 +27,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'flight-booking',
+    loadChildren: () => import('./flight-booking/flight-booking.module').then((m) => m.FlightBookingModule)
   },
   {
     path: '**',
