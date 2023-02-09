@@ -5,7 +5,7 @@ import { BehaviorSubject, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  userName: string | null = null;
+  userName: string | null = 'Piet';
   get auth() {
     return this.userName !== null;
   }

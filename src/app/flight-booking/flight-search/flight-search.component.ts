@@ -2,7 +2,7 @@
 
 import { AfterViewChecked, Component, ContentChild, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 import { BehaviorSubject, NEVER, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
-import { switchMap, mergeMap, concatMap, exhaustMap, takeUntil } from 'rxjs/operators';
+import { switchMap, mergeMap, concatMap, exhaustMap, takeUntil, tap } from 'rxjs/operators';
 import { ManfriedComponent } from 'src/app/shared/controls/manfried/manfried.component';
 import { Flight } from '../flight';
 import { FlightService } from '../flight.service';
@@ -30,7 +30,10 @@ export class FlightSearchComponent implements OnDestroy, AfterViewChecked {
   trigger$$ = new BehaviorSubject({ from: this.from, to: this.to });
   // source$ = this.flightService.find;
 
-  flights$: Observable<Flight[]> = this.trigger$$.pipe(exhaustMap((data) => this.flightService.find(data.from, data.to)));
+  flights$: Observable<Flight[]> = this.trigger$$.pipe(
+    tap((data) => this.flightService.load(data.from, data.to)),
+    exhaustMap((data) => this.flightService.find(data.from, data.to))
+  );
 
   basket: { [key: number]: boolean } = {
     3: true,

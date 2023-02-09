@@ -9,6 +9,8 @@ import { Flight } from './flight';
   providedIn: 'root'
 })
 export class FlightService {
+  // fetch('https://api.swapi.dev/people/1').then(data => data.json())
+  // import('https://api.swapi.dev/people/1.js').then()
   // We will refactor this to an observable in a later exercise!
   // flights$$ = new BehaviorSubject()
   flights: Flight[] = [];
